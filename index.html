@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>nubi. studio — BL stories made with AI</title>
+<meta name="description" content="At nubi. studio we dream up BL romances with the help of AI: soft worlds, characters with heart, and endings that feel like a hug.">
+<meta name="theme-color" content="#000000">
+<meta property="og:title" content="nubi. studio — Love stories that float like clouds.">
+<meta property="og:description" content="BL stories made with AI. Soft worlds, characters with heart, and endings that feel like a hug.">
+<meta property="og:image" content="og.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="icon.png">
+<link rel="apple-touch-icon" href="icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#000;--plum:#1A0E12;--line:#3A1D28;--pink:#FFC4D6;--pink2:#F7A8C4;
+  --ink:#2A0F18;--text:#FFE9E4;--soft:#F3D6DC;--muted:#E8C8D0;--foot:#C9A4AF;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--black);color:var(--text);font-family:'DM Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--pink);text-decoration:none}a:hover{color:#fff}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif}
+section{scroll-margin-top:24px}
+.wrap{max-width:1200px;margin:0 auto;padding-left:32px;padding-right:32px}
+.skip{position:absolute;left:-9999px;top:8px;background:var(--pink);color:var(--ink);padding:12px 18px;border-radius:999px;font-weight:700;z-index:10}
+.skip:focus{left:16px}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--pink);outline-offset:3px}
+#join a:focus-visible,#join button:focus-visible,#join input:focus-visible{outline-color:var(--ink)}
+
+.btn{display:inline-block;border-radius:999px;font-weight:700;font-size:17px;transition:transform .18s ease-out,filter .18s ease-out}
+.btn:hover{filter:brightness(1.08);transform:translateY(-2px)}
+.btn:active{transform:translateY(0)}
+.btn-solid{background:var(--pink);color:var(--ink);padding:16px 32px}
+.btn-solid:hover{color:var(--ink)}
+.btn-ghost{border:2px solid var(--pink);color:var(--pink);padding:14px 30px}
+
+header{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:20px;padding-bottom:20px}
+header .logo img{height:clamp(56px,7vw,88px);width:auto}
+nav{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-weight:500}
+nav a{padding:12px 14px}
+nav .btn{font-size:16px;padding:12px 24px;margin-left:8px}
+
+.hero{display:flex;align-items:center;gap:48px;flex-wrap:wrap;padding-top:40px;padding-bottom:104px}
+.hero-text{flex:1 1 440px;min-width:280px}
+.kicker{margin:0 0 20px;display:inline-flex;align-items:center;gap:10px;font-size:14px;letter-spacing:.24em;text-transform:uppercase;color:var(--pink2);font-weight:700}
+.hero h1{margin:0 0 24px;font-weight:700;font-size:clamp(44px,6.4vw,84px);line-height:1.02;letter-spacing:-.01em;color:var(--pink);text-wrap:balance}
+.lead{margin:0 0 36px;font-size:20px;line-height:1.6;max-width:520px;color:var(--soft)}
+.actions{display:flex;gap:16px;flex-wrap:wrap}
+.hero-art{flex:1 1 380px;min-width:260px;display:flex;justify-content:center;position:relative}
+.glow{position:absolute;inset:12% 10%;border-radius:50%;background:radial-gradient(closest-side,rgba(255,196,214,.22),rgba(255,196,214,0));filter:blur(8px)}
+.hero-art img{position:relative;width:100%;max-width:560px}
+.float{animation:float 6s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+
+.block{padding-top:72px;padding-bottom:72px}
+.block h2{margin:0 0 12px;font-size:clamp(34px,4.4vw,52px);color:var(--pink)}
+.block .sub{margin:0 0 48px;font-size:18px;color:var(--soft);max-width:560px;line-height:1.6}
+.grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.card{background:var(--plum);border:1px solid var(--line);border-radius:28px;transition:transform .2s ease-out,border-color .2s ease-out}
+.card:hover{transform:translateY(-4px);border-color:#6B3349}
+.step{padding:32px}
+.step-top{display:flex;align-items:center;justify-content:space-between}
+.num{width:48px;height:48px;border-radius:50%;background:var(--pink);color:var(--ink);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:700;font-size:22px}
+.card h3{margin:24px 0 10px;font-size:26px;color:var(--text)}
+.card p{margin:0;font-size:17px;line-height:1.6;color:var(--muted)}
+.story{overflow:hidden}
+.cover{height:220px;position:relative}
+.chip{position:absolute;top:16px;left:16px;background:var(--ink);color:var(--pink);padding:8px 14px;border-radius:999px;font-size:13px;font-weight:700;letter-spacing:.06em}
+.story .body{padding:24px 24px 28px}
+.story h3{margin:0 0 10px}
+.genre{margin:0 0 8px!important;font-size:13px!important;letter-spacing:.18em;text-transform:uppercase;color:var(--pink2)!important;font-weight:700}
+
+.join{max-width:1000px;width:calc(100% - 64px);margin:72px auto;padding:56px 32px;border-radius:40px;background:var(--pink);color:var(--ink);text-align:center}
+.join h2{margin:0 0 14px;font-size:clamp(32px,4.2vw,50px)}
+.join > p{margin:0 auto 28px;font-size:18px;line-height:1.6;max-width:520px}
+.join form{max-width:500px;margin:0 auto;text-align:left}
+.join label{display:block;margin:0 0 8px 22px;font-size:15px;font-weight:700}
+.row{display:flex;gap:12px;flex-wrap:wrap}
+.join input{flex:1 1 240px;min-height:52px;padding:14px 22px;border-radius:999px;border:2px solid var(--ink);background:#fff;color:var(--ink);font-size:16px;font-family:inherit}
+.join button{min-height:52px;padding:14px 30px;border-radius:999px;border:0;background:var(--ink);color:var(--pink);font-weight:700;font-size:16px;font-family:inherit;cursor:pointer}
+.help{margin:10px 0 0 22px;font-size:14px;color:#5A2A3A}
+.hidden{position:absolute;left:-9999px}
+
+footer{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;color:var(--foot);font-size:15px;border-top:1px solid #2A1520;padding-top:32px;padding-bottom:56px}
+footer .brand{font-family:'Fraunces',serif;font-size:24px;color:var(--pink)}
+
+@media (max-width:560px){
+  .wrap{padding-left:20px;padding-right:20px}
+  .join{width:calc(100% - 40px);padding:40px 20px;border-radius:28px}
+  nav a{padding:12px 10px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}.float{animation:none}
+  .btn,.card{transition:none}.btn:hover,.card:hover{transform:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="wrap">
+  <a class="logo" href="#top" aria-label="nubi. studio, home"><img src="logo.webp" alt="nubi. studio" width="730" height="430"></a>
+  <nav aria-label="Main">
+    <a href="#how">How it works</a>
+    <a href="#stories">Stories</a>
+    <a class="btn btn-solid" href="#join">Join</a>
+  </nav>
+</header>
+
+<main id="main">
+  <section id="top" class="wrap hero">
+    <div class="hero-text">
+      <p class="kicker"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12.8 7 17 11.2 24 12C17 12.8 12.8 17 12 24C11.2 17 7 12.8 0 12C7 11.2 11.2 7 12 0Z" fill="#F7A8C4"/></svg>BL stories made with AI</p>
+      <h1>Love stories that float like clouds.</h1>
+      <p class="lead">At nubi. studio we dream up BL romances with the help of AI: soft worlds, characters with heart, and endings that feel like a hug.</p>
+      <div class="actions">
+        <a class="btn btn-solid" href="#stories">Read stories</a>
+        <a class="btn btn-ghost" href="#join">Get updates</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="glow" aria-hidden="true"></div>
+      <img class="float" src="mascot.webp" alt="Nubi, the cloud mascot of nubi. studio" width="780" height="520">
+    </div>
+  </section>
+
+  <section id="how" class="wrap block" aria-labelledby="how-t">
+    <h2 id="how-t">How we create</h2>
+    <p class="sub">Three steps from imagination to a finished story.</p>
+    <ol class="grid">
+      <li class="card step">
+        <div class="step-top"><span class="num">1</span><svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12.8 7 17 11.2 24 12C17 12.8 12.8 17 12 24C11.2 17 7 12.8 0 12C7 11.2 11.2 7 12 0Z" fill="#FFC4D6"/></svg></div>
+        <h3>A spark</h3>
+        <p>We start with an idea: a meeting, a trope, a feeling we want to explore.</p>
+      </li>
+      <li class="card step">
+        <div class="step-top"><span class="num">2</span><svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12.8 7 17 11.2 24 12C17 12.8 12.8 17 12 24C11.2 17 7 12.8 0 12C7 11.2 11.2 7 12 0Z" fill="#F7A8C4"/></svg></div>
+        <h3>AI + a human touch</h3>
+        <p>AI helps us shape characters, scenes and dialogue; we take care of the tone and the tenderness.</p>
+      </li>
+      <li class="card step">
+        <div class="step-top"><span class="num">3</span><svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12.8 7 17 11.2 24 12C17 12.8 12.8 17 12 24C11.2 17 7 12.8 0 12C7 11.2 11.2 7 12 0Z" fill="#FFE9E4"/></svg></div>
+        <h3>Your read</h3>
+        <p>We publish the story so you can read it, comment, and fall in love with us.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section id="stories" class="wrap block" aria-labelledby="stories-t">
+    <h2 id="stories-t">Stories</h2>
+    <p class="sub">Our upcoming reads, made to stay in your heart.</p>
+    <div class="grid">
+      <article class="card story">
+        <div class="cover" style="background:linear-gradient(135deg,#FFC4D6,#F58FB0)"><span class="chip">Coming soon</span></div>
+        <div class="body"><p class="genre">[GENRE]</p><h3>[STORY TITLE 1]</h3><p>[Short one- or two-line synopsis.]</p></div>
+      </article>
+      <article class="card story">
+        <div class="cover" style="background:linear-gradient(135deg,#FFE9E4,#F7A8C4)"><span class="chip">Coming soon</span></div>
+        <div class="body"><p class="genre">[GENRE]</p><h3>[STORY TITLE 2]</h3><p>[Short one- or two-line synopsis.]</p></div>
+      </article>
+      <article class="card story">
+        <div class="cover" style="background:linear-gradient(135deg,#F58FB0,#7A3A55)"><span class="chip">Coming soon</span></div>
+        <div class="body"><p class="genre">[GENRE]</p><h3>[STORY TITLE 3]</h3><p>[Short one- or two-line synopsis.]</p></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="join" class="join" aria-labelledby="join-t">
+    <h2 id="join-t">Step into our cloud</h2>
+    <p>Leave your email and we’ll let you know when a new story drops.</p>
+    <form action="https://formspree.io/f/xzedoqnq" method="POST">
+      <input type="hidden" name="_subject" value="New nubi. studio subscriber">
+      <p class="hidden"><label>Leave this empty <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
+      <label for="email">Email address</label>
+      <div class="row">
+        <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@email.com" aria-describedby="email-help">
+        <button class="btn" type="submit">Notify me</button>
+      </div>
+      <p id="email-help" class="help">We’ll only write when a new story drops.</p>
+    </form>
+  </section>
+</main>
+
+<footer class="wrap">
+  <span class="brand">nubi. studio</span>
+  <span>[@your_handle] · [you@email.com]</span>
+  <span>© 2026 nubi. studio</span>
+</footer>
+</body>
+</html>
